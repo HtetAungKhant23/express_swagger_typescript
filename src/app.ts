@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import router from "./routes/pingRoute";
+import regRouter from "./routes/auth";
 import swaggerUi from "swagger-ui-express";
 import dotenv from "dotenv";
 
@@ -25,10 +26,11 @@ app.use(
     swaggerOptions: {
       url: "/swagger.json",
     },
-  })
+  }),
 );
 
 app.use(router);
+app.use(regRouter);
 
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
