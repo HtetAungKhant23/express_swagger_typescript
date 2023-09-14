@@ -1,10 +1,13 @@
-import express, { Application } from "express";
+import express, { Express } from "express";
 import router from "./routes/pingRoute";
 import swaggerUi from "swagger-ui-express";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const PORT = process.env.PORT || 8000;
 
-const app: Application = express();
+const app: Express = express();
 
 app.use(express.json());
 app.use(express.static("public"));
